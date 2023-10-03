@@ -1,10 +1,18 @@
+let Time = 0
 let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB)
-strip.showColor(neopixel.colors(NeoPixelColors.Red))
-strip.setBrightness(2)
+strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+strip.show()
 basic.forever(function () {
-    for (let index = 0; index <= 255; index++) {
-        strip.setBrightness(index)
-        basic.pause(500)
-        strip.show()
-    }
+    strip.rotate(1)
+    strip.show()
+    basic.pause(Time)
+    Time = randint(50, 500)
+    strip.rotate(1)
+    strip.show()
+    basic.pause(Time)
+    Time = randint(50, 500)
+    strip.rotate(1)
+    strip.show()
+    basic.pause(Time)
+    Time = randint(50, 500)
 })
